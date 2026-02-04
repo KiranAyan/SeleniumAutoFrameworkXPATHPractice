@@ -24,6 +24,7 @@ public class PracticeXpath extends BaseTest {
 
     @Test
     public void practiceFormTest() throws InterruptedException {
+    	System.out.println("Git Hub added and lets jenkin now");
         SoftAssert softAssert = new SoftAssert();
         System.out.println(System.getProperty("user.dir"));
         String title = driver.getTitle();
