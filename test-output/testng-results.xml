@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2026-02-04T08:35:35 IST" name="Automation Suite" finished-at="2026-02-04T08:36:00 IST" duration-ms="25203">
+    <groups>
+    </groups>
+    <test started-at="2026-02-04T08:35:35 IST" name="Regression Tests" finished-at="2026-02-04T08:36:00 IST" duration-ms="25203">
+      <class name="xpathSelenium.PracticeXpath">
+        <test-method is-config="true" signature="initSoftAssert()[pri:0, instance:xpathSelenium.PracticeXpath@20d525]" started-at="2026-02-04T08:35:35 IST" name="initSoftAssert" finished-at="2026-02-04T08:35:35 IST" duration-ms="14" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- initSoftAssert -->
+        <test-method is-config="true" signature="setup()[pri:0, instance:xpathSelenium.PracticeXpath@20d525]" started-at="2026-02-04T08:35:35 IST" name="setup" finished-at="2026-02-04T08:35:45 IST" duration-ms="10546" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="practiceFormTest()[pri:0, instance:xpathSelenium.PracticeXpath@20d525]" started-at="2026-02-04T08:35:45 IST" name="practiceFormTest" finished-at="2026-02-04T08:36:00 IST" duration-ms="14567" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- practiceFormTest -->
+      </class> <!-- xpathSelenium.PracticeXpath -->
+    </test> <!-- Regression Tests -->
+  </suite> <!-- Automation Suite -->
+</testng-results>

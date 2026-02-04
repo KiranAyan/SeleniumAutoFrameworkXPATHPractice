@@ -1,0 +1,8 @@
+/target/
+/.settings/
+/.recommenders/
+.classpath
+.project
+/test-output/
+/screenshots/
+*.class
