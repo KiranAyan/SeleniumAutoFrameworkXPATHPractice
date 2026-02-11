@@ -3,6 +3,8 @@ package xpathSelenium;
 import com.practice.base.BaseTest;
 import com.practice.pages.PracticePage;
 import com.practice.utils.ConfigReader;
+import com.practice.utils.TestCaseID;
+
 import org.testng.annotations.*;
 
 public class PracticeXpath2 extends BaseTest  {
@@ -16,19 +18,14 @@ public class PracticeXpath2 extends BaseTest  {
 		}*/		
 	PracticePage practicePage;
 
-    @BeforeClass
-    public void setupClass() {
-        initializeDriver();
-    }
-
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void setupMethod() {
         initSoftAssert();
         driver.get(ConfigReader.getProperty("url"));
         practicePage = new PracticePage(driver); // Constructor call
     }
     
-    @Test(priority = 0)
+    @Test(priority = 0,groups = {"Sanity", "Regression"})
     public void downloadLinkTest() {
         test.info("Fetching the 'href' attribute from Download Link");
         String url = practicePage.getDownloadUrl();
@@ -40,22 +37,21 @@ public class PracticeXpath2 extends BaseTest  {
         test.pass("Right click action performed successfully.");
     }
         
-        @Test(priority = 1)
+        @TestCaseID(id = "TC-112")
+        @Test(priority = 1,groups = {"Sanity", "Regression","Smoke"})
         public void openInNewTabTest() {
 
         test.info("Opening Download Link in a New Tab (Control + Click)");
         practicePage.openInNewTab();
 		test.pass("Download link opened in new tab successfully.");
         }
-        @Test(priority = 2)
+        @TestCaseID(id = "TC-112")
+        @Test(priority = 2,groups = {"Regression"})
         public void windowSwitchingTest() {
         test.info("Iterating through all open windows and switching focus");
         practicePage.switchAndPrintWindowDetails();
 
         test.pass("Download page interactions and window switching completed successfully.");
     }
-    @AfterClass
-    public void tearDown() {
-        quitDriver();
-    }
+    
 }

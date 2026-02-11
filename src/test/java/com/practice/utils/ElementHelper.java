@@ -12,6 +12,7 @@ public class ElementHelper {
     }
 
     public void safeClick(By locator) {
+    	
         try {
             WaitUtils.waitForElementVisible(driver, locator, 10).click();
         } catch (Exception e) {
