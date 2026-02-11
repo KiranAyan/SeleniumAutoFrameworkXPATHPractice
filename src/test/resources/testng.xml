@@ -4,11 +4,15 @@
     
     <listeners>
         <listener class-name="com.practice.listeners.MyListener" />
+        <listener class-name="com.practice.utils.AnnotationTransformer" />
+        <listener class-name="io.qameta.allure.testng.AllureTestNg" />
     </listeners>
 
     <test name="Regression Tests">
+   
         <classes>
-            <class name="xpathSelenium.PracticeXpath" />
+            <class name="xpathSelenium.PracticeXpath1" />
+            <class name="xpathSelenium.PracticeXpath2" />
         </classes>
     </test>
 </suite>
