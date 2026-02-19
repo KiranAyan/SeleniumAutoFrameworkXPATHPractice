@@ -16,13 +16,13 @@ public class DataUtils { // You were missing the class declaration!
 
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
         	br.readLine();
-           /* String header = br.readLine();
+            String header = br.readLine();
             System.out.println("Header found: " + header);
 
             if (header == null) {
                 System.out.println("WARNING: The file is completely empty!");
                 return new Object[0][0];
-            }*/
+            }
 
             while ((line = br.readLine()) != null) {
                 // Ignore empty lines in the CSV

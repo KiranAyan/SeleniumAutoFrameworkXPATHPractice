@@ -7,12 +7,22 @@
         <listener class-name="com.practice.utils.AnnotationTransformer" />
         <listener class-name="io.qameta.allure.testng.AllureTestNg" />
     </listeners>
+    
+    <parameter name="browser" value="chrome" />
+    <parameter name="url" value="https://selectorshub.com" />
 
     <test name="Regression Tests">
-   
+    <groups>
+        <run>
+            <include name="Sanity" />
+            <include name="Regression" />
+            <include name="Smoke" />
+        </run>
+    </groups>
         <classes>
             <class name="xpathSelenium.PracticeXpath1" />
             <class name="xpathSelenium.PracticeXpath2" />
         </classes>
+    
     </test>
 </suite>

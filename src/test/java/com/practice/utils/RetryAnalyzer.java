@@ -14,7 +14,7 @@ public class RetryAnalyzer implements IRetryAnalyzer {
     public boolean retry(ITestResult result) {
         if (!result.isSuccess()) { // Check if test failed
         	Throwable throwable = result.getThrowable();
-        	if ((throwable != null) && (throwable instanceof StaleElementReferenceException || throwable instanceof ElementNotInteractableException)) {
+        	if ((throwable != null) && (throwable instanceof StaleElementReferenceException)) {
             if (count < MAX_RETRY_COUNT) {
                 count++;
                 System.out.println("⚠️ Retrying " + result.getName() + " due to Selenium Exception: " + throwable.getClass().getSimpleName());;

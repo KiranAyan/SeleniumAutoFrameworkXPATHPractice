@@ -9,28 +9,33 @@ import java.io.IOException;
 
 public class ScreenShotUtils {
 
-    public static String takeScreenshot(String testName) {
-        // Access the static driver from BaseTest
-        if (BaseTest.driver == null) {
-            System.out.println("Screenshot skipped: Driver was not initialized.");
-            return null;
-        }
+	public static String takeScreenshot(String testName) {
+	    if (BaseTest.driver == null) {
+	        return null;
+	    }
 
-        try {
-            // 1. Capture the screenshot as a file
-            File src = ((TakesScreenshot) BaseTest.driver).getScreenshotAs(OutputType.FILE);
-            
-            // 2. Define the destination path
-            String path = System.getProperty("user.dir") + "/screenshots/" + testName + ".png";
-            File destination = new File(path);
-            
-            // 3. Copy file to destination
-            FileUtils.copyFile(src, destination);
-            
-            return path;
-        } catch (IOException e) {
-            System.err.println("Failed to capture screenshot: " + e.getMessage());
-            return null;
-        }
-    }
+	    try {
+	        // Create folder if it doesn't exist
+	        String folderName = "ExtentReports/screenshots";
+	        File directory = new File(System.getProperty("user.dir") + "/" + folderName);
+	        if (!directory.exists()) directory.mkdirs();
+
+	        File src = ((TakesScreenshot) BaseTest.driver).getScreenshotAs(OutputType.FILE);
+	        
+	        String fileName = testName + "_" + System.currentTimeMillis() + ".png";
+	        String fullPath = System.getProperty("user.dir") + "/" + folderName + "/" + fileName;
+	        
+	        // This is what the HTML report uses to find the image in the same folder
+	        String relativePath = folderName + "/" + fileName;
+
+	        File destination = new File(fullPath);
+	        FileUtils.copyFile(src, destination);
+	        
+	        // Return the relative path for the Report
+	        return relativePath; 
+	    } catch (IOException e) {
+	        e.printStackTrace();
+	        return null;
+	    }
+	}
 }

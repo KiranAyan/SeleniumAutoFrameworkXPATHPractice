@@ -28,7 +28,8 @@ public class PracticeXpath1 extends BaseTest {
     public void checkUserisOnDashboard() {
     	//test.info(MarkupHelper.createLabel("Test1", ExtentColor.BLUE).getMarkup() + " Checking menu icon");
         // 1. UI Check
-        softAssertTrueWithScreenshot(practicePage.isMenuIconVisible(), "Menu missing", "IconTest");
+        softAssertFalseWithScreenshot(practicePage.isMenuIconVisible(), "Menu missing", "IconTest"); 
+        softAssert.assertAll();
     }
     @TestCaseID(id = "TC-103,TC-104,TC-105")
     @Test(dataProvider = "formData", dataProviderClass = TestDataProvider.class,groups = {"Regression"})
@@ -43,10 +44,9 @@ public class PracticeXpath1 extends BaseTest {
         test.info("Entering Shadow DOM data");
         practicePage.fillShadowDomInput("yes");
         }
-    @AfterMethod(alwaysRun = true)
+    @AfterClass(alwaysRun = true)
      public void assertionTest() {
         softAssert.assertAll();
-        test.pass("Form submitted successfully!");
      }
 
   

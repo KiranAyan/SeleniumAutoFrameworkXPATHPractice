@@ -107,7 +107,10 @@ public class BaseTest {
 			
 			// 2. Construct Filename: Name + Timestamp
 			String fileName = testName + "_" + timestamp + "_SoftFailure";
-			ScreenShotUtils.takeScreenshot(fileName);
+			String screenshotPath = ScreenShotUtils.takeScreenshot(fileName);
+			// 2. Log to Extent Report immediately
+			test.fail(message, 
+		            MediaEntityBuilder.createScreenCaptureFromPath(screenshotPath).build());
 			System.out.println("Soft failure detected! Screenshot taken.");
         }
         softAssert.assertFalse(condition, message);
@@ -119,7 +122,9 @@ public class BaseTest {
 			
 			// 2. Construct Filename: Name + Timestamp
 			String fileName = testName + "_" + timestamp + "_SoftFailure";
-			ScreenShotUtils.takeScreenshot(fileName);
+			String screenshotPath = ScreenShotUtils.takeScreenshot(fileName);
+			test.fail(message, 
+		            MediaEntityBuilder.createScreenCaptureFromPath(screenshotPath).build());
 			System.out.println("Soft failure detected! Screenshot taken.");
         }
         softAssert.assertTrue(condition, message);
