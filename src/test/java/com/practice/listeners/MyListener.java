@@ -29,6 +29,9 @@ public class MyListener extends BaseTest implements ITestListener {
         // not implemented
       }
     public void onTestSuccess(ITestResult result) {
-        // not implemented
+    	String methodName = result.getMethod().getMethodName();
+    	System.out.println("✅ SUCCESS: The test " + methodName + " passed successfully.");
+    	long duration = result.getEndMillis() - result.getStartMillis();
+        System.out.println("Time taken: " + duration + "ms");
       }
 }

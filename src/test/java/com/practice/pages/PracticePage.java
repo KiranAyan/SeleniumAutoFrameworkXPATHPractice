@@ -18,9 +18,8 @@ public class PracticePage {
     private By userNameField = By.xpath("//input[contains(@id,'shub')]");
     private By passwordField = By.id("pass");
     private By companyField = By.xpath("(//input[@placeholder='Enter your company'])[1]");
-    private By shadowHost = By.cssSelector("#userName1");
+    private By shadowHost = By.cssSelector("#userName");
     private ElementHelper elementHelper;
-
     // 1. Private Locators (Encapsulation)
     private By dwldLocator = By.linkText("DownLoad Link");
 
