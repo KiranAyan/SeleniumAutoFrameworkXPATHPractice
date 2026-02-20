@@ -11,6 +11,8 @@ public class ExtentManager {
         if (extent == null) {
             // Set the location of the report
             ExtentSparkReporter spark = new ExtentSparkReporter("test-output/ExtentReport.html");
+            spark.config().setOfflineMode(true); 
+            spark.config().setTimelineEnabled(true);
             spark.config().setReportName("My Automation Results");
             spark.config().setDocumentTitle("Test Execution Report for Practice");
             spark.config().setTheme(com.aventstack.extentreports.reporter.configuration.Theme.DARK);
